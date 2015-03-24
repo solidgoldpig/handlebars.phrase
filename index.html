@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/jquery-1.11.2.min.js"> </script>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h2>Handlebars Phrase helper</h2><pre class="prettyprint source"><code>{{phrase key}}</code></pre><p>Internationalisation helper for <a href="http://handlebarsjs.com">Handlebars</a></p>
+<p>handlebars.phrase is handlebars <a href="http://en.wikipedia.org/wiki/Turtles_all_the_way_down">all the way down</a> so its phrase strings can be templates containing other phrases, variables or helpers.</p>
+<h3>Version</h3><p>1.0.0</p>
+<h3>Installation</h3><pre class="prettyprint source"><code>npm install handlebars.phrase</code></pre><h3>Registering the helper</h3><pre class="prettyprint source"><code>var Handlebars = require(&quot;handlebars&quot;);
+var Phrase = require(&quot;handlebars.phrase&quot;);
+Phrase.registerHelpers(Handlebars);</code></pre><h3>Setting the languages</h3><pre class="prettyprint source"><code>Phrase.setLanguages({
+    en: {
+        &quot;foo&quot;: &quot;Foo&quot;,
+        &quot;bar&quot;: &quot;Bar {{x}}&quot;,
+        &quot;wibble&quot;: &quot;{{phrase 'wobble'}}&quot;,
+        &quot;wobble&quot;: &quot;Wibble Wobble&quot;,
+        &quot;baz.qux&quot;: &quot;Baz Qux&quot;
+    },
+    fr: {
+        &quot;foo&quot;: &quot;Un Foo&quot;,
+        ...
+    }
+});</code></pre><h3>Setting the default locale</h3><pre class="prettyprint source"><code>Phrase.locale(&quot;en&quot;);</code></pre><h3>Using the helper</h3><p><em>The following examples assume the above languages and locale have been set and a context of <code>{ x: &quot;X&quot; }</code></em></p>
+<p>Output a phrase using a key</p>
+<pre class="prettyprint source"><code>{{phrase &quot;foo&quot;}}                 → «Foo»</code></pre><p>Output a phrase, interpolating a variable from the context</p>
+<pre class="prettyprint source"><code>{{phrase &quot;bar&quot;}}                 → «Bar X»</code></pre><p>Explicitly interpolate a variable</p>
+<pre class="prettyprint source"><code>{{phrase &quot;bar&quot; x=&quot;Y&quot;}}           → «Bar Y»</code></pre><p>Output a phrase that contains a nested phrase</p>
+<pre class="prettyprint source"><code>{{phrase &quot;wibble&quot;}}              → «{{phrase 'wobble'}}» → «Wibble Wobble»</code></pre><p>Output a phrase for a particular locale</p>
+<pre class="prettyprint source"><code>{{phrase &quot;foo&quot; &quot;fr&quot;}}
+{{phrase &quot;foo&quot; locale=&quot;fr&quot;}}     → «Mon foo»</code></pre><p>Output a phrase for a key appended with a suffix</p>
+<pre class="prettyprint source"><code>{{phrase &quot;baz&quot; _append=&quot;qux&quot;}}   → «Baz Qux»</code></pre><p>Output a phrase for a key prepended with a prefix</p>
+<pre class="prettyprint source"><code>{{phrase &quot;qux&quot; _prepend=&quot;baz&quot;}}  → «Baz Qux»</code></pre><p>Output a phrase wrapped in html for debugging purposes</p>
+<pre class="prettyprint source"><code>{{phrase &quot;foo&quot; _debug=true}}     → «&lt;phrase data-phrase-key=&quot;foo&quot;>Foo&lt;/phrase>»</code></pre><h3>Alternative shorter syntax</h3><pre class="prettyprint source"><code>((foo))                          → «Foo»
+((bar x=&quot;Y&quot;))                    → «Bar Y»</code></pre><p>See <a href="template-phrase.html">phrase</a> helper for more details</p>
+<h3>Additional methods</h3><h4>Phrase.get</h4><pre class="prettyprint source"><code>var str = Phrase.get(key, params);</code></pre><p>Returns a Handlebars SafeString for key</p>
+<p>See <a href="module-handlebars%2525phrase.html#.get">handlebars.phrase.get</a></p>
+<h4>Phrase.getString</h4><pre class="prettyprint source"><code>var str = Phrase.getString(key, params);</code></pre><p>Returns string for key</p>
+<p>See <a href="module-handlebars%2525phrase.html#.getString">handlebars.phrase.getString</a></p>
+<h4>Phrase.locale</h4><pre class="prettyprint source"><code>Phrase.locale([loc]);</code></pre><p>Get (or set) Phrase’s current locale</p>
+<p>See <a href="module-handlebars%2525phrase.html#.locale">handlebars.phrase.locale</a></p>
+<h4>Phrase.setLanguages</h4><pre class="prettyprint source"><code>Phrase.setLanguages(langs, options);</code></pre><p>Sets languages to be used</p>
+<p>See <a href="module-handlebars%2525phrase.html#.setLanguages">handlebars.phrase.setLanguages</a></p>
+<h4>Phrase.setLanguage</h4><pre class="prettyprint source"><code>Phrase.setLanguages(lang, phrases);</code></pre><p>Sets individual language</p>
+<p>See <a href="module-handlebars%2525phrase.html#.setLanguage">handlebars.phrase.setLanguage</a></p>
+<h3>Tests</h3><p>To run the tests, cd to the handlebars.phrase directory</p>
+<pre class="prettyprint source"><code>npm install && npm test</code></pre></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3 class="modules">Modules</h3><ul><li><a href="module-handlebars%2525phrase.html">handlebars.phrase</a></li></ul><h3 class="template-helpers">Template helpers</h3><ul><li><a href="template-phrase.html">phrase</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta1</a> on Tue Mar 24 2015 14:50:39 GMT+0000 (GMT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
