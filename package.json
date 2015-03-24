@@ -1,0 +1,37 @@
+{
+    "name": "handlebars.phrase",
+    "description": "Handlebars internationalisation helper",
+    "version": "1.0.0",
+    "main": "handlebars.phrase.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/solidgoldpig/handlebars.phrase.git#1.0.0"
+    },
+    "homepage": "http://phrase.handlebars.solidgoldpig.com",
+    "bugs": "https://github.com/solidgoldpig/handlebars.phrase/issues",
+    "keywords": [
+        "handlebars",
+        "helper",
+        "internationalisation",
+        "internationalization",
+        "i18n",
+        "substitution",
+        "phrase"
+    ],
+    "dependencies": {
+        "lodash": ">=0.0.0"
+    },
+    "devDependencies": {
+        "handlebars": ">=0.0.0",
+        "jasmine-node": "^1.14.x",
+        "log": "^1.4.0"
+    },
+    "scripts": {
+        "test": "jasmine-node --verbose spec"
+    },
+    "author": {
+        "name": "Alex Robinson",
+        "email": "handlebars.phrase@alex.solidgoldpig.com"
+    },
+    "license": "UNLICENSE"
+}
