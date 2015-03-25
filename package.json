@@ -1,11 +1,11 @@
 {
     "name": "handlebars.phrase",
     "description": "Handlebars internationalisation helper",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "main": "handlebars.phrase.js",
     "repository": {
         "type": "git",
-        "url": "git://github.com/solidgoldpig/handlebars.phrase.git#1.0.0"
+        "url": "git://github.com/solidgoldpig/handlebars.phrase.git#1.0.1"
     },
     "homepage": "http://phrase.handlebars.solidgoldpig.com",
     "bugs": "https://github.com/solidgoldpig/handlebars.phrase/issues",

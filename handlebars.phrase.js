@@ -210,7 +210,7 @@
                 context = context || this;
                 var params = ["get", phrase, {hash: args}];
                 if (locale) {
-                    params.splice(1, 0, locale);
+                    params.splice(2, 0, locale);
                 }
                 return PhraseHelper.apply(context, params);
             },

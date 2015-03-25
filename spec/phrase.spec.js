@@ -45,13 +45,13 @@ function template (tmpl, data) {
     log.info("\n================================", "\n"+tmpl, "\n---------------------------------\n", output, "\n");
     return output;
 }
-function get (key, params) {
-    var output = Phrase.get(key, params).toString();
+function get (key, params, context, locale) {
+    var output = Phrase.get(key, params, context, locale).toString();
     log.info("\n================================", "\n"+key, "\n---------------------------------\n", output, "\n");
     return output;
 }
-function getString (key, params) {
-    var output = Phrase.getString(key, params);
+function getString (key, params, context, locale) {
+    var output = Phrase.getString(key, params, context, locale);
     log.info("\n================================", "\n"+key, "\n---------------------------------\n", output, "\n");
     return output;
 }
@@ -132,6 +132,7 @@ describe("Phrase.get", function() {
     it("should return same value as helper", function () {
         expect(get("test.string")).toBe('a aa');
         expect(get("test.nested.interpolate.override", {x: "XX", y: "YY"})).toBe('e XX b YY bb ee');
+        expect(get("test.string", {}, {}, "fr")).toBe('à àà');
     });
 });
 
@@ -139,6 +140,7 @@ describe("Phrase.getString", function() {
     it("should return same value as helper", function () {
         expect(getString("test.string")).toBe('a aa');
         expect(getString("test.nested.interpolate.override", {x: "XX", y: "YY"})).toBe('e XX b YY bb ee');
+        expect(getString("test.string", {}, {}, "fr")).toBe('à àà');
     });
 });
 
