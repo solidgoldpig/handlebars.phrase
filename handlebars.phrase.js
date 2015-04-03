@@ -268,7 +268,6 @@
                 languageRegister = languageRegister || {};
                 if (languages) {
                     for (var lang in languages) {
-                        console.log("lang", lang);
                         phraseRegister[lang] = {};
                         phraseStrings[lang] = {};
                         phraseTemplates[lang] = {};
