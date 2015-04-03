@@ -287,6 +287,26 @@
                 }
             },
             /**
+             * @method addLanguages
+             * @static
+             * @param {object} [languages] Object of language phrases
+             * @description Add keys to existing languages object
+             *
+             * Clears any previously cached strings or templates for languages passed
+             */
+            addLanguages: function (languages) {
+                languageRegister = languageRegister || {};
+                if (languages) {
+                    for (var lang in languages) {
+                        console.log("lang", lang);
+                        phraseRegister[lang] = {};
+                        phraseStrings[lang] = {};
+                        phraseTemplates[lang] = {};
+                        languageRegister[lang] = _.extend({}, languageRegister[lang], languages[lang]);
+                    }
+                }
+            },
+            /**
              * @method setLanguage
              * @static
              * @param {string} lang Language to be set
@@ -297,10 +317,28 @@
              *
              */
             setLanguage: function (lang, phrases) {
+                languageRegister = languageRegister || {};
                 phraseRegister[lang] = {};
                 phraseStrings[lang] = {};
                 phraseTemplates[lang] = {};
                 languageRegister[lang] = phrases;
+            },
+            /**
+             * @method addLanguage
+             * @static
+             * @param {string} lang Language to add to
+             * @param {object} phrases Phrases object for the language
+             * @description Add phrases to individual language
+             *
+             * Clears any previously cached strings or templates for language
+             *
+             */
+            addLanguage: function (lang, phrases) {
+                languageRegister = languageRegister || {};
+                phraseRegister[lang] = {};
+                phraseStrings[lang] = {};
+                phraseTemplates[lang] = {};
+                languageRegister[lang] = _.extend({}, languageRegister[lang], phrases);
             },
             /**
              * @method registerHelper
