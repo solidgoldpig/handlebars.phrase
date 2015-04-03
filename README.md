@@ -8,7 +8,7 @@ handlebars.phrase is handlebars [all the way down](http://en.wikipedia.org/wiki/
 
 ### Version
 
-1.0.2
+1.0.3
 
 ### Installation
 

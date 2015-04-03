@@ -36,7 +36,7 @@ var langs = {
 };
 
 Phrase.locale("en");
-Phrase.setLanguages(langs);
+Phrase.addLanguages(langs);
 
 
 function template (tmpl, data) {
@@ -154,6 +154,20 @@ describe("Phrase.setFilter", function() {
         });
         expect(template('{{phrase "test.munge.span"}}')).toBe('f <span>FF</span> ff');
         Phrase.setFilter(null);
+    });
+});
+
+describe("Phrase.addLanguages", function() {
+    it("should add keys", function () {
+        Phrase.addLanguages({en:{wibble:"dibble"}});
+        expect(template('{{phrase "wibble"}}')).toBe('dibble');
+    });
+});
+
+describe("Phrase.addLanguage", function() {
+    it("should add keys", function () {
+        Phrase.addLanguage("en", {wonkey:"donkey"});
+        expect(template('{{phrase "wonkey"}}')).toBe('donkey');
     });
 });
 
